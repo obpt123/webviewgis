@@ -111,12 +111,12 @@ namespace WebViewGis
 
         private void button17_Click(object sender, EventArgs e)
         {
-            this.baiduMapGL1.ExecuteScriptAsync("drawCircle");
+            this.baiduMapGL1.ExecuteScriptAsync("selectByCircle");
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
-            this.baiduMapGL1.ExecuteScriptAsync("closeDraw");
+            this.baiduMapGL1.ExecuteScriptAsync("closeSelect");
         }
 
         private void button19_Click(object sender, EventArgs e)
@@ -131,7 +131,27 @@ namespace WebViewGis
 
         private void button20_Click(object sender, EventArgs e)
         {
-            this.baiduMapGL1.ExecuteScriptAsync("drawRectangle");
+            this.baiduMapGL1.ExecuteScriptAsync("selectByRectangle");
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            this.baiduMapGL1.ExecuteScriptAsync("bringDataToScreen");
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            this.baiduMapGL1.ExecuteScriptAsync("measureCircleArea");
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            this.baiduMapGL1.ExecuteScriptAsync("measureRectangleArea");
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            this.baiduMapGL1.ExecuteScriptAsync("measurePolygonArea");
         }
     }
     public class GeoPoint

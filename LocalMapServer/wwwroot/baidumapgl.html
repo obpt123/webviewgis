@@ -223,9 +223,11 @@
         }
     </script>
     <script>
+
         function removeAllLayers() {
             view.removeAllLayers();
         }
+
         function clearPointLayer() {
             pointLayer.setData([]);
             selectedLayer.setData([]);
@@ -244,8 +246,19 @@
                     properties: item.props
                 });
             }
-
             pointLayer.setData(newData);
+        }
+        function bringDataToScreen() {
+            // 将数据展示到屏幕中间
+            var datas = pointLayer.getData();
+            if (!datas || datas.length == 0) {
+                return;
+            }
+            var pointArray = datas.map(item => {
+                return new BMapGL.Point(item.geometry.coordinates[0], item.geometry.coordinates[1]);
+            })
+            var viewPort = map.getViewport(pointArray)
+            map.centerAndZoom(viewPort.center, viewPort.zoom);
 
         }
     </script>
@@ -254,6 +267,13 @@
         var styleOptions = {
             strokeColor: '#5E87DB',   // 边线颜色
             fillColor: '#5E87DB',     // 填充颜色。当参数为空时，圆形没有填充颜色
+            strokeWeight: 1,          // 边线宽度，以像素为单位
+            strokeOpacity: 1,         // 边线透明度，取值范围0-1
+            fillOpacity: 0.2          // 填充透明度，取值范围0-1
+        };
+        var styleOptions2 = {
+            strokeColor: '#ff6319',   // 边线颜色
+            fillColor: '#ff6319',     // 填充颜色。当参数为空时，圆形没有填充颜色
             strokeWeight: 1,          // 边线宽度，以像素为单位
             strokeOpacity: 1,         // 边线透明度，取值范围0-1
             fillOpacity: 0.2          // 填充透明度，取值范围0-1
@@ -268,7 +288,7 @@
             padding: '5px'
         };
 
-        // 实例化鼠标绘制工具
+        // 选取图元
         var drawingManager = new BMapGLLib.DrawingManager(map, {
             // isOpen: true,        // 是否开启绘制模式
             enableCalculate: false, // 绘制是否进行测距测面
@@ -281,18 +301,76 @@
             labelOptions: labelOptions,      // label样式
         });
 
-        function drawCircle() {
+        // 面积测量
+        var drawingManager2 = new BMapGLLib.DrawingManager(map, {
+            enableCalculate: true,  // 绘制是否进行测距测面
+            enableSorption: true,   // 是否开启边界吸附功能
+            sorptiondistance: 20,   // 边界吸附距离
+            enableGpc: true,        // 是否开启延边裁剪功能
+            enableLimit: false,      // 是否开启超限提示
+            circleOptions: styleOptions2,     // 圆的样式
+            polylineOptions: styleOptions2,   // 线的样式
+            polygonOptions: styleOptions2,    // 多边形的样式
+            rectangleOptions: styleOptions2,  // 矩形的样式
+            labelOptions: labelOptions,      // label样式
+        });
+        // 绘制完成后获取相关的信息(面积等)
+        drawingManager2.addEventListener('overlaycomplete', function (e) {
+            var bounds = e.overlay.getBounds();
+            var point = new BMapGL.Point((bounds.minX + bounds.maxX) / 2, (bounds.minY + bounds.maxY) / 2);
+            addLabelOverlay(point, e.calculate);
+
+            function addLabelOverlay(point, area) {
+                var content = getAreaContent(area);
+                var label = new BMapGL.Label(content, {       // 创建文本标注
+                    position: point,                          // 设置标注的地理位置
+                    offset: new BMapGL.Size(-50, -8)           // 设置标注的偏移量
+                });
+                map.addOverlay(label);
+            }
+            function getAreaContent(area) {
+                if (area > 1000000) {
+                    return `面积：<span style='color:#ff6319;font-weight:bold'>${(area / 1000000).toFixed(2)}</span>平方公里`;
+                } else {
+                    return `面积：<span style='color:#ff6319;font-weight:bold'>${(area / 1.0).toFixed()}</span>平方米`;
+                }
+            }
+        });
+
+
+
+
+        function selectByCircle() {
+            drawingManager2.close();
             drawingManager.setDrawingMode(BMAP_DRAWING_CIRCLE);
             drawingManager.open();
         }
-        function drawRectangle() {
+        function selectByRectangle() {
+            drawingManager2.close();
             drawingManager.setDrawingMode(BMAP_DRAWING_RECTANGLE);
             drawingManager.open();
         }
-        function closeDraw() {
+        function closeSelect() {
             drawingManager.close();
         }
 
+        function measureCircleArea() {
+            drawingManager.close();
+            drawingManager2.setDrawingMode(BMAP_DRAWING_CIRCLE);
+            drawingManager2.open();
+        }
+
+        function measureRectangleArea() {
+            drawingManager.close();
+            drawingManager2.setDrawingMode(BMAP_DRAWING_RECTANGLE);
+            drawingManager2.open();
+        }
+
+        function measurePolygonArea() {
+            drawingManager.close();
+            drawingManager2.setDrawingMode(BMAP_DRAWING_POLYGON);
+            drawingManager2.open();
+        }
         drawingManager.addEventListener('circlecomplete', function (e, overlay) {
             var center = overlay.latLng;
             var selected = pointLayer.getData().filter(item => {
@@ -303,7 +381,7 @@
             pushSelected(selected, IN_CTRL_MODE);
             map.removeOverlay(overlay);
             if (IN_CTRL_MODE) {
-                setTimeout(drawCircle, 100);
+                setTimeout(selectByCircle, 100);
             }
         });
 
@@ -318,7 +396,7 @@
             pushSelected(selected, IN_CTRL_MODE);
             map.removeOverlay(overlay);
             if (IN_CTRL_MODE) {
-                setTimeout(drawRectangle, 100);
+                setTimeout(selectByRectangle, 100);
             }
         });
     </script>
@@ -326,6 +404,11 @@
         function removeOverlays() {
             map.clearOverlays();
         }
+    </script>
+    <script>
+                                            // 测量面积
+
+
     </script>
 </body>
 </html>

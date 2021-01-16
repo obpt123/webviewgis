@@ -30,7 +30,7 @@ namespace WebViewGis.Maps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.Name = "BaiduMapGL";
-            this.Size = new System.Drawing.Size(966, 663);
+            this.Size = new System.Drawing.Size(1241, 769);
             this.ResumeLayout(false);
 
         }
