@@ -147,10 +147,13 @@
         //view.addLayer(selectedLayer);
         function clearSelected() {
             selectedLayer.setData([]);
+            notifySelectedPointsChanged();
         }
         function selectAllPoints() {
             selectedLayer.setData(pointLayer.getData());
+            notifySelectedPointsChanged();
         }
+
 
         function pushSelected(datas, append) {
             if (IN_CTRL_MODE) {
@@ -164,7 +167,16 @@
             } else {
                 selectedLayer.setData(datas || []);
             }
+            notifySelectedPointsChanged();
         }
+        function notifySelectedPointsChanged() {
+            if (!CefSharp) return;
+            var datas = (selectedLayer.getData() || []).map(p => p.origin);
+            CefSharp.BindObjectAsync("callbackAsync").then(function (result) {
+                callbackAsync.selectedPointsChanged(datas);
+            });
+        }
+
 
         function setStyle(styleId) {
             map.setMapStyleV2({
@@ -230,7 +242,7 @@
 
         function clearPointLayer() {
             pointLayer.setData([]);
-            selectedLayer.setData([]);
+            clearSelected();
         }
         function loadPoint(data) {
             clearPointLayer();
@@ -243,7 +255,8 @@
                         type: 'POINT',
                         coordinates: [item.x, item.y]
                     },
-                    properties: item.props
+                    properties: item.props,
+                    origin: item,
                 });
             }
             pointLayer.setData(newData);
@@ -404,11 +417,6 @@
         function removeOverlays() {
             map.clearOverlays();
         }
-    </script>
-    <script>
-                                            // 测量面积
-
-
     </script>
 </body>
 </html>

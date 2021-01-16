@@ -1,4 +1,5 @@
 ﻿using CefSharp;
+using CefSharp.JavascriptBinding;
 using CefSharp.WinForms;
 using System;
 using System.Collections.Generic;
@@ -82,7 +83,7 @@ namespace WebViewGis
 
         protected virtual void OnInitChromiumWebBrowser(ChromiumWebBrowser webBrowser)
         {
-
+            webBrowser.JavascriptObjectRepository.NameConverter = new CamelCaseJavascriptNameConverter();
         }
 
         private class CEFKeyBoardHander : IKeyboardHandler

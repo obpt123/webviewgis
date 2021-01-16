@@ -27,6 +27,7 @@ namespace WebViewGis
         {
             Cef.EnableHighDPISupport();
             var settings = new CefSettings();
+           
             settings.CefCommandLineArgs.Add("enable-gpu", "1");
             settings.CefCommandLineArgs.Add("enable-webgl", "1");
             settings.CefCommandLineArgs.Add("enable-begin-frame-scheduling", "1");

@@ -154,13 +154,7 @@ namespace WebViewGis
             this.baiduMapGL1.ExecuteScriptAsync("measurePolygonArea");
         }
     }
-    public class GeoPoint
-    {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public Dictionary<string, object> Props { get; set; }
-
-    }
+    
 
 
 }

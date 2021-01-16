@@ -30,7 +30,7 @@ namespace WebViewGis.Maps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.Name = "BaiduMapGL";
-            this.Size = new System.Drawing.Size(1241, 769);
+            this.Size = new System.Drawing.Size(1267, 769);
             this.ResumeLayout(false);
 
         }
@@ -38,15 +38,25 @@ namespace WebViewGis.Maps
         protected override void OnInitChromiumWebBrowser(ChromiumWebBrowser webBrowser)
         {
             base.OnInitChromiumWebBrowser(webBrowser);
+
             webBrowser.JavascriptObjectRepository.Register("callbackAsync", new CallBack(), true, BindingOptions.DefaultBinder);
         }
 
         public class CallBack
         {
-            public bool IsControl()
+            public void SelectedPointsChanged(List<GeoPoint> points)
             {
-                return Control.ModifierKeys == Keys.Control;
+                MessageBox.Show("Hello", "abc");
             }
+        }
+
+        public class GeoPoint
+        {
+
+            public double X { get; set; }
+            public double Y { get; set; }
+            public Dictionary<string, object> Props { get; set; }
+
         }
     }
 }
