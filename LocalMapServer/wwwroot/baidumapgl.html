@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="zh-CN">
+﻿<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <title>MapVGL</title>
@@ -34,6 +33,19 @@
 </head>
 <body>
     <div id="map_container"></div>
+    <script>
+        var IN_CTRL_MODE = false;
+        document.onkeydown = function (e) {
+            if (e.key == 'Control') {
+                IN_CTRL_MODE = true;
+            }
+        }
+        document.onkeyup = function (e) {
+            if (e.key == 'Control') {
+                IN_CTRL_MODE = false;
+            }
+        }
+    </script>
     <script>
         /* global BMapGL */
         /* global mapv */
@@ -105,35 +117,50 @@
         var view = new mapvgl.View({
             map: map
         });
+        var selectedLayer = new mapvgl.PointLayer({
+            shape: 'square',
+            color: 'transparent',
+            size: 12,
+            borderWidth: 1,
+            borderColor: '#00ffff'
+        });
 
+        view.addLayer(selectedLayer);
         var pointLayer = new mapvgl.PointLayer({
             blend: 'lighter',
             shape: 'circle',
             color: 'rgba(255, 71, 26, 1)',
             size: 10,
             enablePicked: true, // 是否可以拾取
-            selectedIndex: 1, // 选中数据项索引
+            selectedIndex: -1, // 选中数据项索引
             selectedColor: '#00ff00', // 选中项颜色
-            autoSelect: true, // 根据鼠标位置来自动设置选中项
-            onClick: (e) => { // 点击事件
-                console.log(e);
-
+            autoSelect: false, // 根据鼠标位置来自动设置选中项
+            onClick: (e, e2) => { // 点击事件
+                //if (e.dataItem) {
+                //    pushSelected([e.dataItem], IN_CTRL_MODE);
+                //}
             },
         });
         view.addLayer(pointLayer);
 
-        var selectedLayer = new mapvgl.PointLayer({
-            shape: 'square',
-            color: 'none',
-            size: 12,
-            borderWidth: 1,
-            borderColor: '#00ffff'
-        });
-        view.addLayer(selectedLayer);
+
+        //view.addLayer(selectedLayer);
+        function clearSelected() {
+            selectedLayer.setData([]);
+        }
+        function selectAllPoints() {
+            selectedLayer.setData(pointLayer.getData());
+        }
 
         function pushSelected(datas, append) {
-            if (append) {
-
+            if (IN_CTRL_MODE) {
+                var current = selectedLayer.getData();
+                (datas || []).forEach(item => {
+                    if (item && current.indexOf(item) < 0) {
+                        current.push(item);
+                    }
+                });
+                selectedLayer.setData([...current]);
             } else {
                 selectedLayer.setData(datas || []);
             }
@@ -201,8 +228,10 @@
         }
         function clearPointLayer() {
             pointLayer.setData([]);
+            selectedLayer.setData([]);
         }
         function loadPoint(data) {
+            clearPointLayer();
             var arr = JSON.parse(data || "[]");
             var newData = [];
             for (var j = 0; j < arr.length; j++) {
@@ -215,7 +244,87 @@
                     properties: item.props
                 });
             }
+
             pointLayer.setData(newData);
+
+        }
+    </script>
+
+    <script>
+        var styleOptions = {
+            strokeColor: '#5E87DB',   // 边线颜色
+            fillColor: '#5E87DB',     // 填充颜色。当参数为空时，圆形没有填充颜色
+            strokeWeight: 1,          // 边线宽度，以像素为单位
+            strokeOpacity: 1,         // 边线透明度，取值范围0-1
+            fillOpacity: 0.2          // 填充透明度，取值范围0-1
+        };
+        var labelOptions = {
+            borderRadius: '2px',
+            background: '#FFFBCC',
+            border: '1px solid #E1E1E1',
+            color: '#703A04',
+            fontSize: '12px',
+            letterSpacing: '0',
+            padding: '5px'
+        };
+
+        // 实例化鼠标绘制工具
+        var drawingManager = new BMapGLLib.DrawingManager(map, {
+            // isOpen: true,        // 是否开启绘制模式
+            enableCalculate: false, // 绘制是否进行测距测面
+            enableSorption: true,   // 是否开启边界吸附功能
+            sorptiondistance: 20,   // 边界吸附距离
+            circleOptions: styleOptions,     // 圆的样式
+            polylineOptions: styleOptions,   // 线的样式
+            polygonOptions: styleOptions,    // 多边形的样式
+            rectangleOptions: styleOptions,  // 矩形的样式
+            labelOptions: labelOptions,      // label样式
+        });
+
+        function drawCircle() {
+            drawingManager.setDrawingMode(BMAP_DRAWING_CIRCLE);
+            drawingManager.open();
+        }
+        function drawRectangle() {
+            drawingManager.setDrawingMode(BMAP_DRAWING_RECTANGLE);
+            drawingManager.open();
+        }
+        function closeDraw() {
+            drawingManager.close();
+        }
+
+        drawingManager.addEventListener('circlecomplete', function (e, overlay) {
+            var center = overlay.latLng;
+            var selected = pointLayer.getData().filter(item => {
+                var point = new BMapGL.Point(item.geometry.coordinates[0], item.geometry.coordinates[1]);
+                var distance = map.getDistance(point, center);
+                return distance < e.radius;
+            });
+            pushSelected(selected, IN_CTRL_MODE);
+            map.removeOverlay(overlay);
+            if (IN_CTRL_MODE) {
+                setTimeout(drawCircle, 100);
+            }
+        });
+
+        drawingManager.addEventListener('rectanglecomplete', function (e, overlay) {
+            var bounds = overlay.getBounds();
+            var selected = pointLayer.getData().filter(item => {
+                return item.geometry.coordinates[0] > bounds.minX
+                    && item.geometry.coordinates[0] < bounds.maxX
+                    && item.geometry.coordinates[1] > bounds.minY
+                    && item.geometry.coordinates[1] < bounds.maxY;
+            });
+            pushSelected(selected, IN_CTRL_MODE);
+            map.removeOverlay(overlay);
+            if (IN_CTRL_MODE) {
+                setTimeout(drawRectangle, 100);
+            }
+        });
+    </script>
+    <script>
+        function removeOverlays() {
+            map.clearOverlays();
         }
     </script>
 </body>

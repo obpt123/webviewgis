@@ -74,9 +74,15 @@ namespace WebViewGis
                 string url = string.IsNullOrEmpty(this.url) ? BLANK_URL : this.url;
                 webview = new ChromiumWebBrowser(url);
                 webview.KeyboardHandler = new CEFKeyBoardHander(this);
+                this.OnInitChromiumWebBrowser(webview);
                 webview.Dock = DockStyle.Fill;
                 this.Controls.Add(webview);
             }
+        }
+
+        protected virtual void OnInitChromiumWebBrowser(ChromiumWebBrowser webBrowser)
+        {
+
         }
 
         private class CEFKeyBoardHander : IKeyboardHandler

@@ -51,7 +51,7 @@ namespace WebViewGis
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            this.baiduMapGL1.ExecuteScriptAsync("removeOverlays");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -80,6 +80,10 @@ namespace WebViewGis
             this.baiduMapGL1.ExecuteScriptAsync("clearPointLayer");
         }
 
+        private void button21_Click(object sender, EventArgs e)
+        {
+            LoadData("datas/data_1.json");
+        }
         private void button13_Click(object sender, EventArgs e)
         {
             LoadData("datas/data_200.json");
@@ -104,12 +108,31 @@ namespace WebViewGis
         {
             LoadData("datas/data_200000.json");
         }
-    }
-    public class CurrentPoint
-    {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public int Group { get; set; }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            this.baiduMapGL1.ExecuteScriptAsync("drawCircle");
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            this.baiduMapGL1.ExecuteScriptAsync("closeDraw");
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            this.baiduMapGL1.ExecuteScriptAsync("clearSelected");
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            this.baiduMapGL1.ExecuteScriptAsync("selectAllPoints");
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            this.baiduMapGL1.ExecuteScriptAsync("drawRectangle");
+        }
     }
     public class GeoPoint
     {

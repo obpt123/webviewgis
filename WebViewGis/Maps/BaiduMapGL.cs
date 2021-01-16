@@ -1,9 +1,12 @@
-﻿using System;
+﻿using CefSharp;
+using CefSharp.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WebViewGis.Maps
 {
@@ -30,6 +33,20 @@ namespace WebViewGis.Maps
             this.Size = new System.Drawing.Size(966, 663);
             this.ResumeLayout(false);
 
+        }
+
+        protected override void OnInitChromiumWebBrowser(ChromiumWebBrowser webBrowser)
+        {
+            base.OnInitChromiumWebBrowser(webBrowser);
+            webBrowser.JavascriptObjectRepository.Register("callbackAsync", new CallBack(), true, BindingOptions.DefaultBinder);
+        }
+
+        public class CallBack
+        {
+            public bool IsControl()
+            {
+                return Control.ModifierKeys == Keys.Control;
+            }
         }
     }
 }
