@@ -63,7 +63,10 @@ namespace WebViewGis
         {
             this.baiduMapGL1.ExecuteScriptAsync("setStyle", Maps.MapStyles.Dark2);
         }
-
+        private void button27_Click(object sender, EventArgs e)
+        {
+            this.baiduMapGL1.ExecuteScriptAsync("setStyle", Maps.MapStyles.Clear);
+        }
         private void button10_Click(object sender, EventArgs e)
         {
             this.baiduMapGL1.ExecuteScriptAsync("show3Dbuild");
@@ -153,6 +156,8 @@ namespace WebViewGis
         {
             this.baiduMapGL1.ExecuteScriptAsync("measurePolygonArea");
         }
+
+
     }
 
 
