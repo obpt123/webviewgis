@@ -30,7 +30,7 @@ namespace WebViewGis.Maps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.Name = "BaiduMapGL";
-            this.Size = new System.Drawing.Size(1267, 769);
+            this.Size = new System.Drawing.Size(1241, 590);
             this.ResumeLayout(false);
 
         }
@@ -44,9 +44,10 @@ namespace WebViewGis.Maps
 
         public class CallBack
         {
-            public void SelectedPointsChanged(List<GeoPoint> points)
+
+            public void RaiseEvent(string type, string jsonData)
             {
-                MessageBox.Show("Hello", "abc");
+                MessageBox.Show(type, "abc");
             }
         }
 

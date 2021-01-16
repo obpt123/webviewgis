@@ -173,7 +173,7 @@
             if (!CefSharp) return;
             var datas = (selectedLayer.getData() || []).map(p => p.origin);
             CefSharp.BindObjectAsync("callbackAsync").then(function (result) {
-                callbackAsync.selectedPointsChanged(datas);
+                callbackAsync.raiseEvent("SelectedPointsChanged", JSON.stringify(datas));
             });
         }
 

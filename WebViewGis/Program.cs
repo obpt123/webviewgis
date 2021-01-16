@@ -27,7 +27,7 @@ namespace WebViewGis
         {
             Cef.EnableHighDPISupport();
             var settings = new CefSettings();
-           
+            settings.CachePath = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "cache");
             settings.CefCommandLineArgs.Add("enable-gpu", "1");
             settings.CefCommandLineArgs.Add("enable-webgl", "1");
             settings.CefCommandLineArgs.Add("enable-begin-frame-scheduling", "1");

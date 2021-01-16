@@ -154,7 +154,7 @@ namespace WebViewGis
             this.baiduMapGL1.ExecuteScriptAsync("measurePolygonArea");
         }
     }
-    
+
 
 
 }
