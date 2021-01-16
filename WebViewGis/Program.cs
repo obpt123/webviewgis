@@ -17,7 +17,8 @@ namespace WebViewGis
         public static void Main()
         {
             AppDomain.CurrentDomain.AssemblyResolve += Resolver;
-
+            Application.SetCompatibleTextRenderingDefault(true);
+            Application.EnableVisualStyles();
             LoadApp();
         }
 
@@ -39,6 +40,8 @@ namespace WebViewGis
             Cef.Initialize(settings, performDependencyCheck: false, browserProcessHandler: null);
 
             var browser = new Form1();
+
+
             Application.Run(browser);
         }
 

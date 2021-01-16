@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>MapVGL</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map_container {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+
+    <link href="//mapopen.cdn.bcebos.com/github/BMapGLLib/DrawingManager/src/DrawingManager.min.css" rel="stylesheet">
+    <script src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=mCPK7g77BUIZU0XnyAc6NE2KWNGXnWGa"></script>
+    <script src="https://mapv.baidu.com/build/mapv.min.js"></script>
+    <script src="https://mapv.baidu.com/gl/examples/static/common.js"></script>
+    <script src="https://code.bdstatic.com/npm/mapvgl@1.0.0-beta.97/dist/mapvgl.min.js"></script>
+    <!--测距-->
+    <script type="text/javascript" src="//mapopen.cdn.bcebos.com/github/BMapGLLib/DistanceTool/src/DistanceTool.min.js"></script>
+    <!--面积工具-->
+    <script type="text/javascript" src="//mapopen.cdn.bcebos.com/github/BMapGLLib/DrawingManager/src/DrawingManager.min.js"></script>
+
+</head>
+<body>
+    <div id="map_container"></div>
+    <script>
+        /* global BMapGL */
+        /* global mapv */
+        /* global mapvgl */
+        /* global initMap */
+        /* global purpleStyle */
+
+        var map = initMap({
+            tilt: 60,
+            heading: 0,
+            center: [106.510141, 29.544868],
+            zoom: 13,
+            style: purpleStyle
+        });
+
+        // 2d 3d 控件
+        map.addControl(new BMapGL.NavigationControl3D());
+        // 添加比例尺控件
+        map.addControl(new BMapGL.ScaleControl());
+        // 添加缩放控件
+        // map.addControl(new BMapGL.ZoomControl());
+
+        // 使用默认鼠标样式
+        map.setDefaultCursor('default');
+
+        map.setDisplayOptions({
+            overlay: true,   //是否显示覆盖物
+            layer: false,     //是否显示叠加图层，地球模式暂不支持
+            building: false,   //是否显示3D建筑物（仅支持WebGL方式渲染的地图）
+        })
+        function showOverlay() {
+            map.setDisplayOptions({
+                overlay: true
+            })
+        }
+        function hideOverlay() {
+            map.setDisplayOptions({
+                overlay: false
+            })
+        }
+        function showTilelay() {
+            map.setDisplayOptions({
+                layer: true
+            })
+        }
+        function hideTilelay() {
+            map.setDisplayOptions({
+                layer: false
+            })
+        }
+        function show3Dbuild() {
+            map.setDisplayOptions({
+                building: true
+            })
+        }
+        function hide3Dbuild() {
+            map.setDisplayOptions({
+                building: false
+            })
+        }
+
+
+
+
+
+
+
+
+        var view = new mapvgl.View({
+            map: map
+        });
+
+        var pointLayer = new mapvgl.PointLayer({
+            blend: 'lighter',
+            shape: 'circle',
+            color: 'rgba(255, 71, 26, 1)',
+            size: 10,
+            enablePicked: true, // 是否可以拾取
+            selectedIndex: 1, // 选中数据项索引
+            selectedColor: '#00ff00', // 选中项颜色
+            autoSelect: true, // 根据鼠标位置来自动设置选中项
+            onClick: (e) => { // 点击事件
+                console.log(e);
+
+            },
+        });
+        view.addLayer(pointLayer);
+
+        var selectedLayer = new mapvgl.PointLayer({
+            shape: 'square',
+            color: 'none',
+            size: 12,
+            borderWidth: 1,
+            borderColor: '#00ffff'
+        });
+        view.addLayer(selectedLayer);
+
+        function pushSelected(datas, append) {
+            if (append) {
+
+            } else {
+                selectedLayer.setData(datas || []);
+            }
+        }
+
+        function setStyle(styleId) {
+            map.setMapStyleV2({
+                styleId: styleId
+            });
+        }
+
+        function to2dMap() {
+            map.setTilt(0);        //设置倾斜角度
+        }
+        function to3dMap() {
+            map.setTilt(73);        //设置倾斜角度
+        }
+        // 重置旋转角度
+        function resetHeading() {
+            map.setHeading(0);
+        }
+    </script>
+    <script>
+        var myDis = new BMapGLLib.DistanceTool(map);
+
+        // 监听测距过程中的鼠标事件
+        myDis.addEventListener('drawend', function (e) {
+            console.log("drawend");
+            console.log(e.points);
+            console.log(e.overlays);
+            console.log(e.distance);
+        });
+        myDis.addEventListener("addpoint", function (e) {
+            console.log("addpoint");
+            console.log(e.point);
+            console.log(e.pixel);
+            console.log(e.index);
+            console.log(e.distance);
+        });
+        myDis.addEventListener("removepolyline", function (e) {
+            console.log("removepolyline");
+            console.log(e);
+        });
+
+        function beginDistance() {
+            myDis.open();
+        }
+
+        function endDistance() {
+            myDis.close();
+        }
+    </script>
+    <script>
+        function zoomIn() {
+            map.zoomIn();
+        }
+
+        function zoomOut() {
+            map.zoomOut();
+        }
+    </script>
+    <script>
+        function removeAllLayers() {
+            view.removeAllLayers();
+        }
+        function clearPointLayer() {
+            pointLayer.setData([]);
+        }
+        function loadPoint(data) {
+            var arr = JSON.parse(data || "[]");
+            var newData = [];
+            for (var j = 0; j < arr.length; j++) {
+                var item = arr[j];
+                newData.push({
+                    geometry: {
+                        type: 'POINT',
+                        coordinates: [item.x, item.y]
+                    },
+                    properties: item.props
+                });
+            }
+            pointLayer.setData(newData);
+        }
+    </script>
+</body>
+</html>

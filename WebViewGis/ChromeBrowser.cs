@@ -137,5 +137,15 @@ namespace WebViewGis
             e.Graphics.DrawLine(Pens.Red, h1, h2);
             e.Graphics.DrawLine(Pens.Red, v1, v2);
         }
+
+        public void ExecuteScriptAsync(string methodName, params object[] args)
+        {
+            this.webview.ExecuteScriptAsync(methodName, args);
+        }
+        public async Task<object> EvaluateScriptAsync(string methodName, params object[] args)
+        {
+            var result = await this.webview.EvaluateScriptAsync(methodName, args);
+            return result.Result;
+        }
     }
 }
