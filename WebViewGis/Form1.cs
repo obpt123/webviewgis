@@ -166,20 +166,6 @@ namespace WebViewGis
         {
 
         }
-
-        public class GeoPoint2
-        {
-            public double X { get; set; }
-            public double Y { get; set; }
-            public int Id { get; set; }
-
-            public int Group { get; set; }
-
-            public double Value { get; set; }
-
-            public string Name { get; set; }
-
-        }
     }
 
 

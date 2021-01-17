@@ -27,7 +27,11 @@ namespace WebViewGis
             return Serialize(obj, withIndented);
         }
 
-        public static string Dump(this object obj, bool withIndented = false) => obj.ToJsonString(withIndented);
+        public static string Dump(this object obj, bool withIndented = false)
+        {
+            return ToJsonString(obj, withIndented);
+
+        }
         public static T FromFile<T>(string filePath)
         {
             return JsonSerializer.Deserialize<T>(System.IO.File.ReadAllText(filePath), JsonOptions);
@@ -35,7 +39,7 @@ namespace WebViewGis
 
         public static void DumpToFile(this object obj, string filePath, bool withIndented = true)
         {
-            System.IO.File.WriteAllText(filePath, obj.Dump(withIndented));
+            System.IO.File.WriteAllText(filePath, Dump(obj, withIndented));
         }
 
     }
