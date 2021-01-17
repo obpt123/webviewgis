@@ -20,7 +20,7 @@ namespace WebViewGis
             Chromium.InitChromiumBrowser();
             Application.SetCompatibleTextRenderingDefault(true);
             Application.EnableVisualStyles();
-            Application.Run(new Form1());
+            Application.Run(new MapForm());
         }
     }
 }

@@ -50,7 +50,6 @@ namespace WebViewGis.Controls
             this.uiSymbolButton3 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton4 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton5 = new Sunny.UI.UISymbolButton();
-            this.baidumap = new WebViewGis.Maps.BaiduMapGL();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -326,21 +325,12 @@ namespace WebViewGis.Controls
             this.uiSymbolButton5.Size = new System.Drawing.Size(35, 35);
             this.uiSymbolButton5.Symbol = 57571;
             this.uiSymbolButton5.TabIndex = 4;
-            // 
-            // baidumap
-            // 
-            this.baidumap.BackColor = System.Drawing.Color.White;
-            this.baidumap.Location = new System.Drawing.Point(0, 49);
-            this.baidumap.Margin = new System.Windows.Forms.Padding(13, 16, 13, 16);
-            this.baidumap.Name = "baidumap";
-            this.baidumap.Size = new System.Drawing.Size(811, 358);
-            this.baidumap.TabIndex = 6;
+
             // 
             // MapControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.baidumap);
             this.Controls.Add(this.panel2);
             this.Name = "MapControl";
             this.Size = new System.Drawing.Size(811, 407);
@@ -376,6 +366,5 @@ namespace WebViewGis.Controls
         private Sunny.UI.UISymbolButton uiSymbolButton3;
         private Sunny.UI.UISymbolButton uiSymbolButton4;
         private Sunny.UI.UISymbolButton uiSymbolButton5;
-        private Maps.BaiduMapGL baidumap;
     }
 }

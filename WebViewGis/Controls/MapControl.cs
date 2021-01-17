@@ -19,7 +19,13 @@ namespace WebViewGis.Controls
 
         private void MapControl_Load(object sender, EventArgs e)
         {
-
+            if (this.DesignMode)
+            {
+                return;
+            }
+            var baidumap = new Maps.BaiduMapGL();
+            baidumap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Controls.Add(baidumap);
         }
 
     }
