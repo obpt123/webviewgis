@@ -30,6 +30,7 @@ namespace WebViewGis
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button27 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@ namespace WebViewGis
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.baiduMapGL1 = new WebViewGis.Maps.BaiduMapGL();
-            this.button27 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +95,17 @@ namespace WebViewGis
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1257, 173);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button27
+            // 
+            this.button27.Location = new System.Drawing.Point(184, 82);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(75, 23);
+            this.button27.TabIndex = 24;
+            this.button27.Text = "样式3";
+            this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
             // 
             // button26
             // 
@@ -364,16 +375,6 @@ namespace WebViewGis
             this.baiduMapGL1.Size = new System.Drawing.Size(1257, 422);
             this.baiduMapGL1.TabIndex = 2;
             // 
-            // button27
-            // 
-            this.button27.Location = new System.Drawing.Point(184, 82);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(75, 23);
-            this.button27.TabIndex = 24;
-            this.button27.Text = "样式3";
-            this.button27.UseVisualStyleBackColor = true;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -383,6 +384,7 @@ namespace WebViewGis
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

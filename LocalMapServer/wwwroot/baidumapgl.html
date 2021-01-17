@@ -202,7 +202,7 @@
         }
         function notifySelectedPointsChanged() {
             if (!CefSharp) return;
-            var datas = (selectedLayer.getData() || []).map(p => p.origin);
+            var datas = (selectedLayer.getData() || []).map(p => p.properties);
             CefSharp.BindObjectAsync("callbackAsync").then(function (result) {
                 callbackAsync.raiseEvent("SelectedPointsChanged", JSON.stringify(datas));
             });
@@ -286,8 +286,7 @@
                         type: 'POINT',
                         coordinates: [item.x, item.y]
                     },
-                    properties: item.props,
-                    origin: item,
+                    properties: item
                 });
             }
             pointLayer.setData(newData);

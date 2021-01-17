@@ -30,7 +30,7 @@ namespace WebViewGis.Maps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.Name = "BaiduMapGL";
-            this.Size = new System.Drawing.Size(1241, 590);
+            this.Size = new System.Drawing.Size(1241, 729);
             this.ResumeLayout(false);
 
         }
@@ -51,13 +51,6 @@ namespace WebViewGis.Maps
             }
         }
 
-        public class GeoPoint
-        {
 
-            public double X { get; set; }
-            public double Y { get; set; }
-            public Dictionary<string, object> Props { get; set; }
-
-        }
     }
 }
