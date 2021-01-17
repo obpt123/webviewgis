@@ -13,6 +13,7 @@ namespace WebViewGis.Maps
     [DefaultProperty("")]
     public class BaiduMapGL : ChromiumBrowser
     {
+        public event EventHandler<string> DataSelected;
         public BaiduMapGL()
         {
             this.Url = "http://localhost:5000/baidumapgl.html";
@@ -30,7 +31,7 @@ namespace WebViewGis.Maps
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.Name = "BaiduMapGL";
-            this.Size = new System.Drawing.Size(1003, 613);
+            this.Size = new System.Drawing.Size(864, 543);
             this.ResumeLayout(false);
 
         }
@@ -39,15 +40,24 @@ namespace WebViewGis.Maps
         {
             base.OnInitChromiumWebBrowser(webBrowser);
 
-            webBrowser.JavascriptObjectRepository.Register("callbackAsync", new CallBack(), true, BindingOptions.DefaultBinder);
+            webBrowser.JavascriptObjectRepository.Register("callbackAsync", new CallBack(this), true, BindingOptions.DefaultBinder);
         }
 
         public class CallBack
         {
+            private readonly BaiduMapGL host;
 
+            public CallBack(BaiduMapGL host)
+            {
+                this.host = host;
+            }
             public void RaiseEvent(string type, string jsonData)
             {
-                //MessageBox.Show(type, "abc");
+                if (host.DataSelected != null)
+                {
+                    host.DataSelected(host, jsonData);
+                }
+
             }
         }
 
