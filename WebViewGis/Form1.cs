@@ -164,56 +164,7 @@ namespace WebViewGis
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            TranData("./datas/data_1.json");
-            TranData("./datas/data_200.json");
-            TranData("./datas/data_2000.json");
-            TranData("./datas/data_20000.json");
-            TranData("./datas/data_200000.json");
-        }
-        private void TranData(string filePath)
-        {
-            var data = System.IO.File.ReadAllText(filePath);
-            var current = Json.FromFile<List<GeoPoint>>(filePath);
-            var random = new Random();
-            var newData = current.Select(p =>
-            {
-                return new GeoPoint2
-                {
-                    X = p.X,
-                    Y = p.Y,
-                    Id = p.Props.Id,
-                    Group = p.Props.Group,
-                    Value = random.Next(1000),
-                    Name = NewName(random, 16)
-                };
-            }).ToList();
-            Json.DumpToFile(newData, filePath);
 
-        }
-
-        const string FullCode = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-
-        public static string NewName(Random random, int length = 16)
-        {
-            StringBuilder passwordBuilder = new StringBuilder();
-            for (int i = 0; i < length; i++)
-            {
-                passwordBuilder.Append(FullCode[random.Next(FullCode.Length)]);
-            }
-            return passwordBuilder.ToString();
-        }
-
-        public class GeoPoint
-        {
-            public double X { get; set; }
-            public double Y { get; set; }
-            public PropInfo Props { get; set; }
-
-        }
-        public class PropInfo
-        {
-            public int Id { get; set; }
-            public int Group { get; set; }
         }
 
         public class GeoPoint2

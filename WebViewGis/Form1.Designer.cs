@@ -93,15 +93,15 @@ namespace WebViewGis
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1257, 173);
+            this.panel1.Size = new System.Drawing.Size(851, 140);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button27
             // 
-            this.button27.Location = new System.Drawing.Point(184, 82);
+            this.button27.Location = new System.Drawing.Point(182, 12);
             this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(75, 23);
+            this.button27.Size = new System.Drawing.Size(71, 23);
             this.button27.TabIndex = 24;
             this.button27.Text = "样式3";
             this.button27.UseVisualStyleBackColor = true;
@@ -109,9 +109,9 @@ namespace WebViewGis
             // 
             // button26
             // 
-            this.button26.Location = new System.Drawing.Point(542, 61);
+            this.button26.Location = new System.Drawing.Point(375, 102);
             this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(105, 26);
+            this.button26.Size = new System.Drawing.Size(101, 23);
             this.button26.TabIndex = 23;
             this.button26.Text = "测量多边形面积";
             this.button26.UseVisualStyleBackColor = true;
@@ -119,9 +119,9 @@ namespace WebViewGis
             // 
             // button25
             // 
-            this.button25.Location = new System.Drawing.Point(441, 61);
+            this.button25.Location = new System.Drawing.Point(273, 102);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(95, 26);
+            this.button25.Size = new System.Drawing.Size(91, 23);
             this.button25.TabIndex = 22;
             this.button25.Text = "测量矩形面积";
             this.button25.UseVisualStyleBackColor = true;
@@ -129,9 +129,9 @@ namespace WebViewGis
             // 
             // button24
             // 
-            this.button24.Location = new System.Drawing.Point(340, 61);
+            this.button24.Location = new System.Drawing.Point(171, 102);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(95, 26);
+            this.button24.Size = new System.Drawing.Size(91, 23);
             this.button24.TabIndex = 21;
             this.button24.Text = "测量圆面积";
             this.button24.UseVisualStyleBackColor = true;
@@ -139,9 +139,9 @@ namespace WebViewGis
             // 
             // button23
             // 
-            this.button23.Location = new System.Drawing.Point(1070, 130);
+            this.button23.Location = new System.Drawing.Point(637, 42);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(81, 31);
+            this.button23.Size = new System.Drawing.Size(77, 23);
             this.button23.TabIndex = 20;
             this.button23.Text = "数据居中";
             this.button23.UseVisualStyleBackColor = true;
@@ -149,9 +149,9 @@ namespace WebViewGis
             // 
             // button22
             // 
-            this.button22.Location = new System.Drawing.Point(936, 23);
+            this.button22.Location = new System.Drawing.Point(265, 72);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(75, 23);
+            this.button22.Size = new System.Drawing.Size(71, 23);
             this.button22.TabIndex = 19;
             this.button22.Text = "全部选择";
             this.button22.UseVisualStyleBackColor = true;
@@ -159,9 +159,9 @@ namespace WebViewGis
             // 
             // button21
             // 
-            this.button21.Location = new System.Drawing.Point(412, 123);
+            this.button21.Location = new System.Drawing.Point(16, 42);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(90, 30);
+            this.button21.Size = new System.Drawing.Size(86, 23);
             this.button21.TabIndex = 18;
             this.button21.Text = "加载数据1";
             this.button21.UseVisualStyleBackColor = true;
@@ -169,9 +169,9 @@ namespace WebViewGis
             // 
             // button20
             // 
-            this.button20.Location = new System.Drawing.Point(772, 23);
+            this.button20.Location = new System.Drawing.Point(99, 72);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(75, 23);
+            this.button20.Size = new System.Drawing.Size(71, 23);
             this.button20.TabIndex = 17;
             this.button20.Text = "画矩形";
             this.button20.UseVisualStyleBackColor = true;
@@ -179,9 +179,9 @@ namespace WebViewGis
             // 
             // button19
             // 
-            this.button19.Location = new System.Drawing.Point(1025, 23);
+            this.button19.Location = new System.Drawing.Point(348, 72);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(75, 23);
+            this.button19.Size = new System.Drawing.Size(71, 23);
             this.button19.TabIndex = 16;
             this.button19.Text = "清空选择";
             this.button19.UseVisualStyleBackColor = true;
@@ -189,9 +189,9 @@ namespace WebViewGis
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(855, 23);
+            this.button18.Location = new System.Drawing.Point(182, 72);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 23);
+            this.button18.Size = new System.Drawing.Size(71, 23);
             this.button18.TabIndex = 15;
             this.button18.Text = "关闭画图";
             this.button18.UseVisualStyleBackColor = true;
@@ -199,9 +199,9 @@ namespace WebViewGis
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(691, 23);
+            this.button17.Location = new System.Drawing.Point(16, 72);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(75, 23);
+            this.button17.Size = new System.Drawing.Size(71, 23);
             this.button17.TabIndex = 15;
             this.button17.Text = "画圆";
             this.button17.UseVisualStyleBackColor = true;
@@ -209,9 +209,9 @@ namespace WebViewGis
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(822, 126);
+            this.button16.Location = new System.Drawing.Point(425, 42);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(111, 30);
+            this.button16.Size = new System.Drawing.Size(107, 23);
             this.button16.TabIndex = 14;
             this.button16.Text = "加载数据200000";
             this.button16.UseVisualStyleBackColor = true;
@@ -219,9 +219,9 @@ namespace WebViewGis
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(705, 128);
+            this.button15.Location = new System.Drawing.Point(307, 42);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(111, 30);
+            this.button15.Size = new System.Drawing.Size(107, 23);
             this.button15.TabIndex = 13;
             this.button15.Text = "加载数据20000";
             this.button15.UseVisualStyleBackColor = true;
@@ -229,9 +229,9 @@ namespace WebViewGis
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(609, 128);
+            this.button14.Location = new System.Drawing.Point(210, 42);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(90, 30);
+            this.button14.Size = new System.Drawing.Size(86, 23);
             this.button14.TabIndex = 12;
             this.button14.Text = "加载数据2000";
             this.button14.UseVisualStyleBackColor = true;
@@ -239,9 +239,9 @@ namespace WebViewGis
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(508, 126);
+            this.button13.Location = new System.Drawing.Point(113, 42);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(90, 30);
+            this.button13.Size = new System.Drawing.Size(86, 23);
             this.button13.TabIndex = 11;
             this.button13.Text = "加载数据200";
             this.button13.UseVisualStyleBackColor = true;
@@ -249,9 +249,9 @@ namespace WebViewGis
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(939, 126);
+            this.button12.Location = new System.Drawing.Point(543, 42);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(87, 30);
+            this.button12.Size = new System.Drawing.Size(83, 23);
             this.button12.TabIndex = 10;
             this.button12.Text = "清理数据";
             this.button12.UseVisualStyleBackColor = true;
@@ -259,9 +259,9 @@ namespace WebViewGis
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(284, 130);
+            this.button11.Location = new System.Drawing.Point(658, 12);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
+            this.button11.Size = new System.Drawing.Size(71, 23);
             this.button11.TabIndex = 9;
             this.button11.Text = "隐藏建筑";
             this.button11.UseVisualStyleBackColor = true;
@@ -269,9 +269,9 @@ namespace WebViewGis
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(203, 130);
+            this.button10.Location = new System.Drawing.Point(576, 12);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.Size = new System.Drawing.Size(71, 23);
             this.button10.TabIndex = 9;
             this.button10.Text = "显示建筑";
             this.button10.UseVisualStyleBackColor = true;
@@ -279,9 +279,9 @@ namespace WebViewGis
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(93, 82);
+            this.button9.Location = new System.Drawing.Point(100, 12);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.Size = new System.Drawing.Size(71, 23);
             this.button9.TabIndex = 8;
             this.button9.Text = "样式2";
             this.button9.UseVisualStyleBackColor = true;
@@ -289,9 +289,9 @@ namespace WebViewGis
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(12, 82);
+            this.button8.Location = new System.Drawing.Point(18, 12);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.Size = new System.Drawing.Size(71, 23);
             this.button8.TabIndex = 7;
             this.button8.Text = "样式1";
             this.button8.UseVisualStyleBackColor = true;
@@ -299,9 +299,9 @@ namespace WebViewGis
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(493, 23);
+            this.button7.Location = new System.Drawing.Point(487, 102);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.Size = new System.Drawing.Size(71, 23);
             this.button7.TabIndex = 6;
             this.button7.Text = "清理测量";
             this.button7.UseVisualStyleBackColor = true;
@@ -309,9 +309,9 @@ namespace WebViewGis
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(412, 23);
+            this.button6.Location = new System.Drawing.Point(89, 102);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.Size = new System.Drawing.Size(71, 23);
             this.button6.TabIndex = 5;
             this.button6.Text = "关闭测距";
             this.button6.UseVisualStyleBackColor = true;
@@ -319,9 +319,9 @@ namespace WebViewGis
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(340, 23);
+            this.button5.Location = new System.Drawing.Point(16, 102);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(66, 23);
+            this.button5.Size = new System.Drawing.Size(62, 23);
             this.button5.TabIndex = 4;
             this.button5.Text = "测距";
             this.button5.UseVisualStyleBackColor = true;
@@ -329,9 +329,9 @@ namespace WebViewGis
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(257, 23);
+            this.button4.Location = new System.Drawing.Point(502, 12);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(67, 23);
+            this.button4.Size = new System.Drawing.Size(63, 23);
             this.button4.TabIndex = 3;
             this.button4.Text = "3D";
             this.button4.UseVisualStyleBackColor = true;
@@ -339,9 +339,9 @@ namespace WebViewGis
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(184, 23);
+            this.button3.Location = new System.Drawing.Point(428, 12);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(67, 23);
+            this.button3.Size = new System.Drawing.Size(63, 23);
             this.button3.TabIndex = 2;
             this.button3.Text = "2D";
             this.button3.UseVisualStyleBackColor = true;
@@ -349,9 +349,9 @@ namespace WebViewGis
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(93, 23);
+            this.button2.Location = new System.Drawing.Point(346, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(71, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "ZoomOut";
             this.button2.UseVisualStyleBackColor = true;
@@ -359,9 +359,9 @@ namespace WebViewGis
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 23);
+            this.button1.Location = new System.Drawing.Point(264, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(71, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "ZoomIn";
             this.button1.UseVisualStyleBackColor = true;
@@ -370,16 +370,16 @@ namespace WebViewGis
             // baiduMapGL1
             // 
             this.baiduMapGL1.BackColor = System.Drawing.Color.White;
-            this.baiduMapGL1.Location = new System.Drawing.Point(0, 173);
+            this.baiduMapGL1.Location = new System.Drawing.Point(0, 140);
             this.baiduMapGL1.Name = "baiduMapGL1";
-            this.baiduMapGL1.Size = new System.Drawing.Size(1257, 422);
+            this.baiduMapGL1.Size = new System.Drawing.Size(851, 455);
             this.baiduMapGL1.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1257, 595);
+            this.ClientSize = new System.Drawing.Size(851, 595);
             this.Controls.Add(this.baiduMapGL1);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
