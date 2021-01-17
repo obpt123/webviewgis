@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,10 +16,10 @@ namespace WebViewGis
 {
 
     [DefaultProperty("Url")]
-    public partial class ChromeBrowser : UserControl
+    public partial class ChromiumBrowser : UserControl
     {
         private const string BLANK_URL = "about:blank";
-        public ChromeBrowser()
+        public ChromiumBrowser()
         {
             this.Dock = DockStyle.Fill;
             InitializeComponent();
@@ -88,9 +90,9 @@ namespace WebViewGis
         private class CEFKeyBoardHander : IKeyboardHandler
         {
 
-            private readonly ChromeBrowser chrome;
+            private readonly ChromiumBrowser chrome;
 
-            public CEFKeyBoardHander(ChromeBrowser chrome)
+            public CEFKeyBoardHander(ChromiumBrowser chrome)
             {
                 this.chrome = chrome;
             }

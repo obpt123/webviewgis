@@ -81,15 +81,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chromium.cs" />
     <Compile Include="Json.cs" />
     <Compile Include="Maps\BaiduMapGL.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ChromeBrowser.cs">
+    <Compile Include="ChromiumBrowser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ChromeBrowser.Designer.cs">
-      <DependentUpon>ChromeBrowser.cs</DependentUpon>
+    <Compile Include="ChromiumBrowser.Designer.cs">
+      <DependentUpon>ChromiumBrowser.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -100,8 +101,8 @@
     <Compile Include="Maps\MapStyles.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ChromeBrowser.resx">
-      <DependentUpon>ChromeBrowser.cs</DependentUpon>
+    <EmbeddedResource Include="ChromiumBrowser.resx">
+      <DependentUpon>ChromiumBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -1,7 +1,7 @@
 ﻿
 namespace WebViewGis
 {
-    partial class ChromeBrowser
+    partial class ChromiumBrowser
     {
         /// <summary> 
         /// 必需的设计器变量。

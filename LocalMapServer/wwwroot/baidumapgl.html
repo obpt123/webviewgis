@@ -26,9 +26,9 @@
     <!--<script src="https://mapv.baidu.com/gl/examples/static/common.js"></script>-->
     <script src="https://code.bdstatic.com/npm/mapvgl@1.0.0-beta.97/dist/mapvgl.min.js"></script>
     <!--测距-->
-    <script type="text/javascript" src="//mapopen.cdn.bcebos.com/github/BMapGLLib/DistanceTool/src/DistanceTool.min.js"></script>
+    <script type="text/javascript" src="https://mapopen.cdn.bcebos.com/github/BMapGLLib/DistanceTool/src/DistanceTool.min.js"></script>
     <!--面积工具-->
-    <script type="text/javascript" src="//mapopen.cdn.bcebos.com/github/BMapGLLib/DrawingManager/src/DrawingManager.min.js"></script>
+    <script type="text/javascript" src="https://mapopen.cdn.bcebos.com/github/BMapGLLib/DrawingManager/src/DrawingManager.min.js"></script>
 
 </head>
 <body>
@@ -86,9 +86,9 @@
         /* global purpleStyle */
 
         var map = initMap({
-            tilt: 60,
+            tilt: 0,
             heading: 0,
-            center: [106.510141, 29.544868],
+            center: [108.8394177, 34.19590137],
             zoom: 13
         });
 
@@ -290,6 +290,7 @@
                 });
             }
             pointLayer.setData(newData);
+            bringDataToScreen();
         }
         function bringDataToScreen() {
             // 将数据展示到屏幕中间

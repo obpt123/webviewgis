@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace WebViewGis.Maps
 {
     [DefaultProperty("")]
-    public class BaiduMapGL : ChromeBrowser
+    public class BaiduMapGL : ChromiumBrowser
     {
         public BaiduMapGL()
         {
