@@ -15,12 +15,20 @@ namespace WebViewGis
     static class Program
     {
         [STAThread]
-        public static void Main()
+        public static void Main(string[] args)
         {
             Chromium.InitChromiumBrowser();
             Application.SetCompatibleTextRenderingDefault(true);
             Application.EnableVisualStyles();
-            Application.Run(new MapForm());
+            if (args.Length > 0)
+            {
+                Application.Run(new MapForm2());
+            }
+            else
+            {
+                Application.Run(new MapForm());
+            }
+
         }
     }
 }

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LocalMapServer</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+
+    <script src="lib/jquery/dist/jquery.js"></script>
+</head>
+<body>
+    <table class="table table-hover table-bordered table-striped">
+        <caption>TotalCount: 0</caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>X</th>
+                <th>Y</th>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+
+        function loadData(text) {
+            $('tbody').html("");
+            var data = JSON.parse(text);
+            var all = data.reduce((pre, item) =>
+                pre + `<tr><td>${item.id}</td><td>${item.x}</td><td>${item.y}</td><td>${item.name}</td><td>${item.value}</td></tr>`,
+                "");
+            $('tbody')[0].innerHTML = all;
+            $('table caption').text(`TotalCount: ${data.length}`);
+        }
+    </script>
+</body>
