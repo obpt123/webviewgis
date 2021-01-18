@@ -30,14 +30,14 @@ namespace WebViewGis.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.uiSymbolButton1 = new Sunny.UI.UISymbolButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.uiLabel1 = new Sunny.UI.UILabel();
@@ -45,9 +45,18 @@ namespace WebViewGis.Forms
             this.panel2 = new System.Windows.Forms.Panel();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiGroupBox2 = new Sunny.UI.UIGroupBox();
+            this.uiDataGridView2 = new Sunny.UI.UIDataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.uiPanel3 = new Sunny.UI.UIPanel();
+            this.lbl_targetCount = new Sunny.UI.UILabel();
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
+            this.uiBarChart1 = new Sunny.UI.UIBarChart();
             this.uiGroupBox3 = new Sunny.UI.UIGroupBox();
             this.uiDataGridView1 = new Sunny.UI.UIDataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +64,6 @@ namespace WebViewGis.Forms
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.geoPointBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uiPanel2 = new Sunny.UI.UIPanel();
             this.lbl_sourceCount = new Sunny.UI.UILabel();
@@ -64,26 +72,18 @@ namespace WebViewGis.Forms
             this.uiGroupBox4 = new Sunny.UI.UIGroupBox();
             this.mapControl1 = new WebViewGis.Controls.MapControl();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.uiPanel3 = new Sunny.UI.UIPanel();
-            this.lbl_targetCount = new Sunny.UI.UILabel();
-            this.uiDataGridView2 = new Sunny.UI.UIDataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.uiPanel1.SuspendLayout();
             this.uiGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedBindingSource)).BeginInit();
+            this.uiPanel3.SuspendLayout();
+            this.uiGroupBox1.SuspendLayout();
             this.uiGroupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.geoPointBindingSource)).BeginInit();
             this.uiPanel2.SuspendLayout();
             this.uiGroupBox4.SuspendLayout();
-            this.uiPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // uiSymbolButton1
@@ -152,11 +152,11 @@ namespace WebViewGis.Forms
             this.uiPanel1.Controls.Add(this.uiGroupBox1);
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.uiPanel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(995, 92);
+            this.uiPanel1.Location = new System.Drawing.Point(972, 92);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(251, 450);
+            this.uiPanel1.Size = new System.Drawing.Size(274, 450);
             this.uiPanel1.TabIndex = 5;
             this.uiPanel1.Text = null;
             // 
@@ -171,36 +171,171 @@ namespace WebViewGis.Forms
             this.uiGroupBox2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox2.Name = "uiGroupBox2";
             this.uiGroupBox2.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox2.Size = new System.Drawing.Size(251, 193);
+            this.uiGroupBox2.Size = new System.Drawing.Size(274, 161);
             this.uiGroupBox2.TabIndex = 2;
             this.uiGroupBox2.Text = "分析数据";
+            // 
+            // uiDataGridView2
+            // 
+            this.uiDataGridView2.AllowUserToAddRows = false;
+            this.uiDataGridView2.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.uiDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.uiDataGridView2.AutoGenerateColumns = false;
+            this.uiDataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.uiDataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.uiDataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.uiDataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.uiDataGridView2.ColumnHeadersHeight = 32;
+            this.uiDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.uiDataGridView2.DataSource = this.selectedBindingSource;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.uiDataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.uiDataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiDataGridView2.EnableHeadersVisualStyles = false;
+            this.uiDataGridView2.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiDataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.uiDataGridView2.Location = new System.Drawing.Point(0, 32);
+            this.uiDataGridView2.Name = "uiDataGridView2";
+            this.uiDataGridView2.ReadOnly = true;
+            this.uiDataGridView2.RowHeadersWidth = 15;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.uiDataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.uiDataGridView2.RowTemplate.Height = 29;
+            this.uiDataGridView2.SelectedIndex = -1;
+            this.uiDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.uiDataGridView2.ShowGridLine = true;
+            this.uiDataGridView2.Size = new System.Drawing.Size(274, 95);
+            this.uiDataGridView2.TabIndex = 3;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.Frozen = true;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 49;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Value";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Value";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 77;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "X";
+            this.dataGridViewTextBoxColumn4.FillWeight = 50F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "X";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 44;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Y";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Y";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 44;
             // 
             // selectedBindingSource
             // 
             this.selectedBindingSource.DataSource = typeof(WebViewGis.Maps.GeoPoint);
             this.selectedBindingSource.DataSourceChanged += new System.EventHandler(this.selectedBindingSource_DataSourceChanged);
             // 
+            // uiPanel3
+            // 
+            this.uiPanel3.Controls.Add(this.lbl_targetCount);
+            this.uiPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiPanel3.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiPanel3.Location = new System.Drawing.Point(0, 127);
+            this.uiPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel3.Name = "uiPanel3";
+            this.uiPanel3.Size = new System.Drawing.Size(274, 34);
+            this.uiPanel3.TabIndex = 1;
+            this.uiPanel3.Text = "Total Count: ";
+            this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbl_targetCount
+            // 
+            this.lbl_targetCount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
+            this.lbl_targetCount.Location = new System.Drawing.Point(102, 5);
+            this.lbl_targetCount.Name = "lbl_targetCount";
+            this.lbl_targetCount.Size = new System.Drawing.Size(100, 23);
+            this.lbl_targetCount.TabIndex = 0;
+            this.lbl_targetCount.Text = "0";
+            this.lbl_targetCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // splitter3
             // 
             this.splitter3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter3.Location = new System.Drawing.Point(0, 193);
+            this.splitter3.Location = new System.Drawing.Point(0, 161);
             this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(251, 3);
+            this.splitter3.Size = new System.Drawing.Size(274, 3);
             this.splitter3.TabIndex = 1;
             this.splitter3.TabStop = false;
             // 
             // uiGroupBox1
             // 
+            this.uiGroupBox1.Controls.Add(this.uiBarChart1);
             this.uiGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uiGroupBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiGroupBox1.Location = new System.Drawing.Point(0, 196);
+            this.uiGroupBox1.Location = new System.Drawing.Point(0, 164);
             this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiGroupBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox1.Name = "uiGroupBox1";
             this.uiGroupBox1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox1.Size = new System.Drawing.Size(251, 254);
+            this.uiGroupBox1.Size = new System.Drawing.Size(274, 286);
             this.uiGroupBox1.TabIndex = 0;
             this.uiGroupBox1.Text = "分析图表";
+            // 
+            // uiBarChart1
+            // 
+            this.uiBarChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiBarChart1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.uiBarChart1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.uiBarChart1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.uiBarChart1.Location = new System.Drawing.Point(0, 32);
+            this.uiBarChart1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiBarChart1.Name = "uiBarChart1";
+            this.uiBarChart1.Size = new System.Drawing.Size(274, 254);
+            this.uiBarChart1.TabIndex = 0;
             // 
             // uiGroupBox3
             // 
@@ -241,8 +376,7 @@ namespace WebViewGis.Forms
             this.nameDataGridViewTextBoxColumn,
             this.valueDataGridViewTextBoxColumn,
             this.xDataGridViewTextBoxColumn,
-            this.yDataGridViewTextBoxColumn,
-            this.groupDataGridViewTextBoxColumn});
+            this.yDataGridViewTextBoxColumn});
             this.uiDataGridView1.DataSource = this.geoPointBindingSource;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
@@ -271,6 +405,7 @@ namespace WebViewGis.Forms
             // 
             // idDataGridViewTextBoxColumn
             // 
+            this.idDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.Frozen = true;
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
@@ -280,6 +415,7 @@ namespace WebViewGis.Forms
             // 
             // nameDataGridViewTextBoxColumn
             // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
@@ -288,6 +424,7 @@ namespace WebViewGis.Forms
             // 
             // valueDataGridViewTextBoxColumn
             // 
+            this.valueDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
             this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
@@ -296,6 +433,7 @@ namespace WebViewGis.Forms
             // 
             // xDataGridViewTextBoxColumn
             // 
+            this.xDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.xDataGridViewTextBoxColumn.DataPropertyName = "X";
             this.xDataGridViewTextBoxColumn.FillWeight = 50F;
             this.xDataGridViewTextBoxColumn.HeaderText = "X";
@@ -305,19 +443,12 @@ namespace WebViewGis.Forms
             // 
             // yDataGridViewTextBoxColumn
             // 
+            this.yDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.yDataGridViewTextBoxColumn.DataPropertyName = "Y";
             this.yDataGridViewTextBoxColumn.HeaderText = "Y";
             this.yDataGridViewTextBoxColumn.Name = "yDataGridViewTextBoxColumn";
             this.yDataGridViewTextBoxColumn.ReadOnly = true;
             this.yDataGridViewTextBoxColumn.Width = 44;
-            // 
-            // groupDataGridViewTextBoxColumn
-            // 
-            this.groupDataGridViewTextBoxColumn.DataPropertyName = "Group";
-            this.groupDataGridViewTextBoxColumn.HeaderText = "Group";
-            this.groupDataGridViewTextBoxColumn.Name = "groupDataGridViewTextBoxColumn";
-            this.groupDataGridViewTextBoxColumn.ReadOnly = true;
-            this.groupDataGridViewTextBoxColumn.Width = 82;
             // 
             // geoPointBindingSource
             // 
@@ -360,7 +491,7 @@ namespace WebViewGis.Forms
             // splitter2
             // 
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Location = new System.Drawing.Point(992, 92);
+            this.splitter2.Location = new System.Drawing.Point(969, 92);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(3, 450);
             this.splitter2.TabIndex = 8;
@@ -376,7 +507,7 @@ namespace WebViewGis.Forms
             this.uiGroupBox4.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiGroupBox4.Name = "uiGroupBox4";
             this.uiGroupBox4.Padding = new System.Windows.Forms.Padding(3, 25, 3, 0);
-            this.uiGroupBox4.Size = new System.Drawing.Size(740, 450);
+            this.uiGroupBox4.Size = new System.Drawing.Size(717, 450);
             this.uiGroupBox4.TabIndex = 9;
             this.uiGroupBox4.Text = "地图";
             // 
@@ -387,7 +518,7 @@ namespace WebViewGis.Forms
             this.mapControl1.Location = new System.Drawing.Point(3, 25);
             this.mapControl1.Margin = new System.Windows.Forms.Padding(5);
             this.mapControl1.Name = "mapControl1";
-            this.mapControl1.Size = new System.Drawing.Size(734, 425);
+            this.mapControl1.Size = new System.Drawing.Size(711, 425);
             this.mapControl1.TabIndex = 0;
             this.mapControl1.DataSelected += new System.EventHandler<string>(this.mapControl1_DataSelected);
             // 
@@ -397,132 +528,6 @@ namespace WebViewGis.Forms
             this.openFileDialog1.Filter = "图元文件|*.json";
             this.openFileDialog1.InitialDirectory = "datas";
             this.openFileDialog1.Title = "选择数据";
-            // 
-            // uiPanel3
-            // 
-            this.uiPanel3.Controls.Add(this.lbl_targetCount);
-            this.uiPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiPanel3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiPanel3.Location = new System.Drawing.Point(0, 159);
-            this.uiPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel3.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel3.Name = "uiPanel3";
-            this.uiPanel3.Size = new System.Drawing.Size(251, 34);
-            this.uiPanel3.TabIndex = 1;
-            this.uiPanel3.Text = "Total Count: ";
-            this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lbl_targetCount
-            // 
-            this.lbl_targetCount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold);
-            this.lbl_targetCount.Location = new System.Drawing.Point(102, 5);
-            this.lbl_targetCount.Name = "lbl_targetCount";
-            this.lbl_targetCount.Size = new System.Drawing.Size(100, 23);
-            this.lbl_targetCount.TabIndex = 0;
-            this.lbl_targetCount.Text = "0";
-            this.lbl_targetCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // uiDataGridView2
-            // 
-            this.uiDataGridView2.AllowUserToAddRows = false;
-            this.uiDataGridView2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.uiDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.uiDataGridView2.AutoGenerateColumns = false;
-            this.uiDataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.uiDataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.uiDataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.uiDataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.uiDataGridView2.ColumnHeadersHeight = 32;
-            this.uiDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.uiDataGridView2.DataSource = this.selectedBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.uiDataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.uiDataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiDataGridView2.EnableHeadersVisualStyles = false;
-            this.uiDataGridView2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.uiDataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.uiDataGridView2.Location = new System.Drawing.Point(0, 32);
-            this.uiDataGridView2.Name = "uiDataGridView2";
-            this.uiDataGridView2.ReadOnly = true;
-            this.uiDataGridView2.RowHeadersWidth = 15;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.uiDataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.uiDataGridView2.RowTemplate.Height = 29;
-            this.uiDataGridView2.SelectedIndex = -1;
-            this.uiDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.uiDataGridView2.ShowGridLine = true;
-            this.uiDataGridView2.Size = new System.Drawing.Size(251, 127);
-            this.uiDataGridView2.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.Frozen = true;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 49;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Value";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Value";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 77;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "X";
-            this.dataGridViewTextBoxColumn4.FillWeight = 50F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "X";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 44;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Y";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Y";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 44;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Group";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Group";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 82;
             // 
             // MapForm
             // 
@@ -538,17 +543,19 @@ namespace WebViewGis.Forms
             this.Controls.Add(this.panel1);
             this.Name = "MapForm";
             this.Text = "WebForm";
+            this.Load += new System.EventHandler(this.MapForm_Load);
             this.panel1.ResumeLayout(false);
             this.uiPanel1.ResumeLayout(false);
             this.uiGroupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedBindingSource)).EndInit();
+            this.uiPanel3.ResumeLayout(false);
+            this.uiGroupBox1.ResumeLayout(false);
             this.uiGroupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.geoPointBindingSource)).EndInit();
             this.uiPanel2.ResumeLayout(false);
             this.uiGroupBox4.ResumeLayout(false);
-            this.uiPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -573,22 +580,21 @@ namespace WebViewGis.Forms
         private Controls.MapControl mapControl1;
         private System.Windows.Forms.BindingSource selectedBindingSource;
         private Sunny.UI.UIDataGridView uiDataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn xDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn groupDataGridViewTextBoxColumn;
         private Sunny.UI.UIPanel uiPanel2;
         private Sunny.UI.UILabel lbl_sourceCount;
         private Sunny.UI.UIDataGridView uiDataGridView2;
+        private Sunny.UI.UIPanel uiPanel3;
+        private Sunny.UI.UILabel lbl_targetCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private Sunny.UI.UIPanel uiPanel3;
-        private Sunny.UI.UILabel lbl_targetCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn xDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yDataGridViewTextBoxColumn;
+        private Sunny.UI.UIBarChart uiBarChart1;
     }
 }

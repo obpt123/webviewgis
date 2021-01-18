@@ -30,12 +30,12 @@ namespace WebViewGis.Controls
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel panel1;
-            Sunny.UI.UIComboBox uiComboBox1;
-            Sunny.UI.UICheckBox uiCheckBox1;
             System.Windows.Forms.Panel panel2;
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+            this.cmb_style = new Sunny.UI.UIComboBox();
+            this.chk_show3d = new Sunny.UI.UICheckBox();
             this.btn_BeginDistance = new Sunny.UI.UISymbolButton();
             this.btn_MeasureCircleArea = new Sunny.UI.UISymbolButton();
             this.btn_MeasureRectangleArea = new Sunny.UI.UISymbolButton();
@@ -51,8 +51,6 @@ namespace WebViewGis.Controls
             this.btn_To2dMap = new Sunny.UI.UISymbolButton();
             this.btn_To3dMap = new Sunny.UI.UISymbolButton();
             panel1 = new System.Windows.Forms.Panel();
-            uiComboBox1 = new Sunny.UI.UIComboBox();
-            uiCheckBox1 = new Sunny.UI.UICheckBox();
             panel2 = new System.Windows.Forms.Panel();
             flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -67,40 +65,43 @@ namespace WebViewGis.Controls
             // panel1
             // 
             panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            panel1.Controls.Add(uiComboBox1);
-            panel1.Controls.Add(uiCheckBox1);
+            panel1.Controls.Add(this.cmb_style);
+            panel1.Controls.Add(this.chk_show3d);
             panel1.Location = new System.Drawing.Point(605, 6);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(203, 35);
             panel1.TabIndex = 1;
             // 
-            // uiComboBox1
+            // cmb_style
             // 
-            uiComboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            uiComboBox1.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
-            uiComboBox1.FillColor = System.Drawing.Color.White;
-            uiComboBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            uiComboBox1.Location = new System.Drawing.Point(108, 4);
-            uiComboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            uiComboBox1.MinimumSize = new System.Drawing.Size(63, 0);
-            uiComboBox1.Name = "uiComboBox1";
-            uiComboBox1.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            uiComboBox1.Size = new System.Drawing.Size(94, 29);
-            uiComboBox1.TabIndex = 1;
-            uiComboBox1.Text = "风格()";
-            uiComboBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmb_style.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmb_style.DisplayMember = "Name";
+            this.cmb_style.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
+            this.cmb_style.FillColor = System.Drawing.Color.White;
+            this.cmb_style.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.cmb_style.Location = new System.Drawing.Point(108, 4);
+            this.cmb_style.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmb_style.MinimumSize = new System.Drawing.Size(63, 0);
+            this.cmb_style.Name = "cmb_style";
+            this.cmb_style.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.cmb_style.Size = new System.Drawing.Size(94, 29);
+            this.cmb_style.TabIndex = 1;
+            this.cmb_style.Text = "风格";
+            this.cmb_style.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmb_style.SelectedValueChanged += new System.EventHandler(this.uiComboBox1_SelectedValueChanged);
             // 
-            // uiCheckBox1
+            // chk_show3d
             // 
-            uiCheckBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            uiCheckBox1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            uiCheckBox1.Location = new System.Drawing.Point(3, 4);
-            uiCheckBox1.MinimumSize = new System.Drawing.Size(1, 1);
-            uiCheckBox1.Name = "uiCheckBox1";
-            uiCheckBox1.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            uiCheckBox1.Size = new System.Drawing.Size(101, 29);
-            uiCheckBox1.TabIndex = 0;
-            uiCheckBox1.Text = "显示建筑";
+            this.chk_show3d.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chk_show3d.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.chk_show3d.Location = new System.Drawing.Point(3, 4);
+            this.chk_show3d.MinimumSize = new System.Drawing.Size(1, 1);
+            this.chk_show3d.Name = "chk_show3d";
+            this.chk_show3d.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.chk_show3d.Size = new System.Drawing.Size(101, 29);
+            this.chk_show3d.TabIndex = 0;
+            this.chk_show3d.Text = "显示建筑";
+            this.chk_show3d.ValueChanged += new Sunny.UI.UICheckBox.OnValueChanged(this.chk_show3d_ValueChanged);
             // 
             // panel2
             // 
@@ -396,5 +397,7 @@ namespace WebViewGis.Controls
         private Sunny.UI.UISymbolButton btn_BringDataToScreen;
         private Sunny.UI.UISymbolButton btn_To2dMap;
         private Sunny.UI.UISymbolButton btn_To3dMap;
+        private Sunny.UI.UICheckBox chk_show3d;
+        private Sunny.UI.UIComboBox cmb_style;
     }
 }

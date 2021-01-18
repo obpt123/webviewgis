@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebViewGis.Maps;
 
 namespace WebViewGis.Controls
 {
@@ -29,6 +30,7 @@ namespace WebViewGis.Controls
             baidumap.DataSelected += this.DataSelected;
             baidumap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Controls.Add(baidumap);
+            this.cmb_style.DataSource = MapStyle.All;
         }
 
         private void ActionButton_Click(object sender, EventArgs e)
@@ -56,6 +58,27 @@ namespace WebViewGis.Controls
         {
             EnsureMapLoaded();
             this.baidumap.ExecuteScriptAsync("loadPoint", datas.ToJsonString());
+        }
+
+        private void chk_show3d_ValueChanged(object sender, bool value)
+        {
+            if (this.chk_show3d.Checked)
+            {
+                this.baidumap.ExecuteScriptAsync("show3Dbuild");
+            }
+            else
+            {
+                this.baidumap.ExecuteScriptAsync("hide3Dbuild");
+            }
+        }
+
+        private void uiComboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var item = this.cmb_style.SelectedItem as MapStyle;
+            if (item != null && this.baidumap != null)
+            {
+                this.baidumap.ExecuteScriptAsync("setStyle", item.StyleId);
+            }
         }
     }
 }
